@@ -7,7 +7,7 @@ const replaceAllButton = document.querySelector(".replace-all-button")
 const replaceFirstButton = document.querySelector(".replace-first-button");
 const documentBody = document.querySelector(`body`);
 const caseInsensitivityCheck = document.querySelector('.case-insensitivity-checkbox');
-
+const userInteractivityBox = document.querySelector(`fieldset`);
 
 
 // The following variable holds your OUTER ARRAY of row elements.
@@ -46,11 +46,11 @@ replaceAllButton.addEventListener(`click`, function() {
             let currentCellHTML = (currentCellElement.innerHTML);
 
             //Case Insensitivity Box Check and String Conversion
-            if (caseInsensitivityCheck.checked === "true") {
+            if (caseInsensitivityCheck.checked === true) {
                 console.log(`THE CHECKBOX IS CHECKED`)
-                currentFindInput = currentFindInput.toLowerCase;
+                currentFindInput = currentFindInput.toLowerCase();
                 console.log(`%c LOWER CASE FIND INPUT: ${currentFindInput}`, `color:red`)
-                currentCellHTML = currentCellHTML.toLowerCase;
+                currentCellHTML = currentCellHTML.toLowerCase();
                 console.log(`%c LOWER CASE CELL HTML: ${currentCellHTML}`, `color:red`)
             }
 
@@ -70,7 +70,7 @@ replaceAllButton.addEventListener(`click`, function() {
         let matchesDiv = document.createElement(`div`);
         matchesDiv.id = "matchesFoundBox"
         matchesDiv.innerHTML = `${matchesFound} Matches Found and Replaced!`
-        documentBody.appendChild(matchesDiv);
+        userInteractivityBox.appendChild(matchesDiv);
 
     } else if (matchesFound === 0) {
         findInput.value = "";
